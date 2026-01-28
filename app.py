@@ -25,7 +25,7 @@ transform = transforms.Compose([
 @st.cache_resource
 def load_model():
     model = CNN_TUMOR(img_size=IMG_SIZE, num_classes=len(CLASS_NAMES))
-    state = torch.load("weights/Brain_Tumor_model_state_dict.pt", map_location="cpu")
+    state = torch.load("weights/fracture_and_non_fracture_state_dict", map_location="cpu")
     model.load_state_dict(state)
     model.eval()
     return model
@@ -37,9 +37,9 @@ def predict(image, model):
         probs = F.softmax(logits, dim=1).numpy()[0]
     return probs
 
-st.set_page_config(page_title="Brain Tumor Detection", layout="centered")
+st.set_page_config(page_title="Fracture and non-Fracture Detection", layout="centered")
 
-st.title("🧠 Brain Tumor Detection")
+st.title("Fracture and Non-Fracture")
 st.caption("Educational demo only – not for medical diagnosis.")
 
 model = load_model()
