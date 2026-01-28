@@ -11,7 +11,7 @@ import torchvision.transforms as transforms
 from model import CNN_TUMOR
 
 IMG_SIZE = 256
-CLASS_NAMES = ["يوجد كسر ", "سليم"]
+CLASS_NAMES = ["There is a fracture", "There is no fracture"]
 
 IMAGENET_MEAN = [0.485, 0.456, 0.406]
 IMAGENET_STD  = [0.229, 0.224, 0.225]
